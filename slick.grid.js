@@ -918,7 +918,7 @@ if (typeof Slick === "undefined") {
     }
 
     function createCssRules() {
-      $style = $("<style id='slickgrid-css-rules' type='text/css' rel='stylesheet' />").appendTo($("head"));
+      $style = $("<style type='text/css' rel='stylesheet' />").appendTo($("head"));
       var rowHeight = (options.rowHeight - cellHeightDiff);
       var rules = [
         "." + uid + " .slick-header-column { left: 1000px; }",
@@ -952,8 +952,7 @@ if (typeof Slick === "undefined") {
 
         // Workaround a bug in chrome where document.styleSheets may not contain all sheets.
         if (!stylesheet) {
-          var styleEl = $("head").find("#slickgrid-css-rules")[0];
-          stylesheet = styleEl && (styleEl.sheet || styleEl.styleSheet);
+          stylesheet = $style[0] && ($style[0].sheet || $style[0].styleSheet);
         }
 
         if (!stylesheet) {
