@@ -1,6 +1,6 @@
 {
   "name": "@opengov/slickgrid",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Find documentation and examples in [the wiki](https://github.com/mleibman/SlickGrid/wiki).",
   "main": "slick.core.js",
   "directories": {
