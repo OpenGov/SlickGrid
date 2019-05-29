@@ -1097,10 +1097,12 @@ if (typeof Slick === "undefined") {
 
       var reRender = false;
       for (i = 0; i < columns.length; i++) {
-        if (columns[i].rerenderOnResize && columns[i].width != widths[i]) {
-          reRender = true;
+        if (columns[i]) {
+          if (columns[i].rerenderOnResize && columns[i].width != widths[i]) {
+            reRender = true;
+          }
+          columns[i].width = widths[i];
         }
-        columns[i].width = widths[i];
       }
 
       applyColumnHeaderWidths();
@@ -1116,7 +1118,7 @@ if (typeof Slick === "undefined") {
       var h;
       for (var i = 0, headers = $headers.children(), ii = headers.length; i < ii; i++) {
         h = $(headers[i]);
-        if (h.width() !== columns[i].width - headerColumnWidthDiff) {
+        if (h && columns[i] && h.width() !== columns[i].width - headerColumnWidthDiff) {
           h.width(columns[i].width - headerColumnWidthDiff);
         }
       }
